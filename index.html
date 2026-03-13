@@ -105,7 +105,7 @@ border-radius:6px;
 
 <script>
 
-const DATA_URL="YOUR_GOOGLE_SCRIPT_URL";
+const DATA_URL="https://script.google.com/macros/s/AKfycbx86rC5Lbr7hkQKNKoF9MVnLE23wKWagkJHKFEtWk3SdHt3QsPKqRBiZ-pP5tT6irlj/exec";
 const REFRESH_INTERVAL=5000;
 
 let tempChart;
@@ -217,19 +217,19 @@ humPressChart.data.labels.push(time);
 gasChart.data.labels.push(time);
 
 // temperatures
-tempChart.data.datasets[0].data.push(Number(row.ahtTemp));
-tempChart.data.datasets[1].data.push(Number(row.bmpTemp));
-tempChart.data.datasets[2].data.push(Number(row.tem));
+tempChart.data.datasets[0].data.push(Number(row.F1));//ahtTemp
+tempChart.data.datasets[1].data.push(Number(row.F3));//bmpTemp
+tempChart.data.datasets[2].data.push(Number(row.F5));//SCD40Temp
 
 // humidity + pressure
-humPressChart.data.datasets[0].data.push(Number(row.ahtHum));
-humPressChart.data.datasets[1].data.push(Number(row.hum));
-humPressChart.data.datasets[2].data.push(Number(row.bmpPress));
+humPressChart.data.datasets[0].data.push(Number(row.F2));//ahtHum
+humPressChart.data.datasets[1].data.push(Number(row.F6));//SCD40Hum
+humPressChart.data.datasets[2].data.push(Number(row.F4));//bmpPress
 
 // gases
-gasChart.data.datasets[0].data.push(Number(row.TVOC));
-gasChart.data.datasets[1].data.push(Number(row.ECO2));
-gasChart.data.datasets[2].data.push(Number(row.co2));
+gasChart.data.datasets[0].data.push(Number(row.U3));//TVOC
+gasChart.data.datasets[1].data.push(Number(row.U4));//ECO2
+gasChart.data.datasets[2].data.push(Number(row.U5));//CO2
 
 latest=row;
 
@@ -239,10 +239,10 @@ latest=row;
 
 if(latest){
 
-document.getElementById("valTemp").textContent=latest.tem;
-document.getElementById("valHum").textContent=latest.hum;
-document.getElementById("valPress").textContent=latest.bmpPress;
-document.getElementById("valCO2").textContent=latest.co2;
+document.getElementById("valTemp").textContent=latest.F5;
+document.getElementById("valHum").textContent=latest.F6;
+document.getElementById("valPress").textContent=latest.F4;
+document.getElementById("valCO2").textContent=latest.U5;
 
 }
 
