@@ -224,7 +224,7 @@ tempChart.data.datasets[2].data.push(Number(row.F5));//SCD40Temp
 // humidity + pressure
 humPressChart.data.datasets[0].data.push(Number(row.F2));//ahtHum
 humPressChart.data.datasets[1].data.push(Number(row.F6));//SCD40Hum
-humPressChart.data.datasets[2].data.push(Number(row.F4));//bmpPress
+humPressChart.data.datasets[2].data.push(Number(row.F4)/10);//bmpPress
 
 // gases
 gasChart.data.datasets[0].data.push(Number(row.U3));//TVOC
